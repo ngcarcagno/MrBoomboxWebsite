@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mr.Boombox | Sound Designer & Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto+Mono:wght@400;500;600&display=swap"
+    />
+    <script
+      src="https://kit.fontawesome.com/your-code.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      :root {
+        --primary: #d4c675;
+        --dark-gray: #333333;
+        --medium-gray: #555555;
+        --dark-bg: #121212;
+        --darker-bg: #1a1a1a;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--dark-bg);
+        color: white;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            rgba(18, 18, 18, 0.9),
+            rgba(18, 18, 18, 0.9)
+          ),
+          url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none" stroke="%23d4c675" stroke-width="0.5" opacity="0.05"/></svg>');
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      nav {
+        font-family: "Roboto Mono", monospace;
+      }
+
+      .cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        mix-blend-mode: difference;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease;
+      }
+
+      .cursor.active {
+        width: 40px;
+        height: 40px;
+      }
+
+      .scanlines {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(18, 18, 18, 0.2) 50%, transparent 50%);
+        background-size: 100% 4px;
+        pointer-events: none;
+        z-index: 9998;
+        animation: scanline 8s linear infinite;
+      }
+
+      @keyframes scanline {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(100vh);
+        }
+      }
+
+      .glitch {
+        position: relative;
+      }
+
+      .glitch::before,
+      .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .glitch::before {
+        color: #0ff;
+        z-index: -1;
+        animation: glitch-effect 3s infinite;
+      }
+
+      .glitch::after {
+        color: #f0f;
+        z-index: -2;
+        animation: glitch-effect 2s infinite reverse;
+      }
+
+      @keyframes glitch-effect {
+        0% {
+          transform: translate(0);
+        }
+        20% {
+          transform: translate(-3px, 3px);
+        }
+        40% {
+          transform: translate(-3px, -3px);
+        }
+        60% {
+          transform: translate(3px, 3px);
+        }
+        80% {
+          transform: translate(3px, -3px);
+        }
+        100% {
+          transform: translate(0);
+        }
+      }
+
+      .typing-text {
+        border-right: 2px solid var(--primary);
+        animation: blink 0.75s step-end infinite;
+      }
+
+      @keyframes blink {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: var(--primary);
+        }
+      }
+
+      .wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23d4c675" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="%23d4c675" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23d4c675"/></svg>');
+        background-size: cover;
+        background-repeat: no-repeat;
+        animation: wave 10s linear infinite;
+      }
+
+      @keyframes wave {
+        0% {
+          transform: translateX(0) translateZ(0) scaleY(1);
+        }
+        50% {
+          transform: translateX(-25%) translateZ(0) scaleY(0.8);
+        }
+        100% {
+          transform: translateX(-50%) translateZ(0) scaleY(1);
+        }
+      }
+
+      .audio-bars {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 120px;
+        gap: 6px;
+      }
+
+      .bar {
+        width: 6px;
+        background-color: var(--primary);
+        border-radius: 3px;
+        animation: equalize 1.5s infinite ease-in-out;
+        animation-delay: calc(var(--delay) * 0.1s);
+      }
+
+      @keyframes equalize {
+        0%,
+        100% {
+          height: 10%;
+          opacity: 0.6;
+        }
+        50% {
+          height: 100%;
+          opacity: 1;
+        }
+      }
+
+      .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: linear-gradient(145deg, #1e1e1e, #1a1a1a);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 0;
+        background-color: var(--primary);
+        transition: height 0.3s ease;
+      }
+
+      .project-card:hover::before {
+        height: 100%;
+      }
+
+      .modal {
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .modal-content {
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+      }
+
+      .modal.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .modal.active .modal-content {
+        transform: scale(1);
+      }
+
+      .input-field {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-bottom: 2px solid var(--medium-gray);
+        transition: border-color 0.3s ease;
+      }
+
+      .input-field:focus {
+        border-color: var(--primary);
+      }
+
+      .btn-primary {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-primary::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(212, 198, 117, 0.4),
+          transparent
+        );
+        transition: left 0.7s ease;
+      }
+
+      .btn-primary:hover::after {
+        left: 100%;
+      }
+
+      .social-icon {
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      .social-icon:hover {
+        transform: translateY(-3px);
+        color: var(--primary);
+      }
+
+      .scroll-down {
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-20px);
+        }
+        60% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cursor {
+          display: none;
+        }
+
+        .audio-bars {
+          height: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 left-0 w-full bg-black bg-opacity-90 z-50 px-6 py-4 border-b border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="text-2xl font-bold text-primary">
+          <span class="text-primary">MR.</span
+          ><span class="text-white">BOOMBOX</span>
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a
+            href="#about"
+            class="text-white hover:text-primary transition-colors relative group"
+          >
+            <span>About</span>
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#projects"
+            class="text-white hover:text-primary transition-colors relative group"
+          >
+            <span>Projects</span>
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#blog"
+            class="text-white hover:text-primary transition-colors relative group"
+          >
+            <span>Blog</span>
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#contact"
+            class="text-white hover:text-primary transition-colors relative group"
+          >
+            <span>Contact</span>
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+        </div>
+
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-white focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-black bg-opacity-95 absolute top-full left-0 w-full px-6 py-4"
+      >
+        <div class="flex flex-col space-y-4">
+          <a
+            href="#about"
+            class="text-white hover:text-primary transition-colors"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="text-white hover:text-primary transition-colors"
+            >Projects</a
+          >
+          <a
+            href="#blog"
+            class="text-white hover:text-primary transition-colors"
+            >Blog</a
+          >
+          <a
+            href="#contact"
+            class="text-white hover:text-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative min-h-screen flex flex-col justify-center items-center pt-20 pb-32 overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0">
+        <div class="wave"></div>
+      </div>
+
+      <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <div class="audio-bars mb-12">
+          <!-- These bars will be animated with JavaScript -->
+          <div class="bar" style="--delay: 1; height: 20%"></div>
+          <div class="bar" style="--delay: 2; height: 50%"></div>
+          <div class="bar" style="--delay: 3; height: 80%"></div>
+          <div class="bar" style="--delay: 4; height: 30%"></div>
+          <div class="bar" style="--delay: 5; height: 70%"></div>
+          <div class="bar" style="--delay: 6; height: 40%"></div>
+          <div class="bar" style="--delay: 7; height: 90%"></div>
+          <div class="bar" style="--delay: 8; height: 60%"></div>
+          <div class="bar" style="--delay: 9; height: 10%"></div>
+          <div class="bar" style="--delay: 10; height: 70%"></div>
+        </div>
+
+        <h1
+          class="glitch text-5xl md:text-7xl font-bold mb-6"
+          data-text="MR.BOOMBOX"
+        >
+          MR.BOOMBOX
+        </h1>
+
+        <div class="text-xl md:text-2xl mb-8">
+          <span class="typing-text" id="typing-text"></span>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="#contact"
+            class="btn-primary px-8 py-3 bg-primary text-black font-bold rounded-full hover:bg-opacity-90 transition-all duration-300"
+          >
+            Hire Me
+          </a>
+          <a
+            href="#projects"
+            class="px-8 py-3 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:bg-opacity-10 transition-all duration-300"
+          >
+            View Work
+          </a>
+        </div>
+      </div>
+
+      <a
+        href="#about"
+        class="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-10 scroll-down"
+      >
+        <svg
+          class="w-8 h-8 text-primary"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          ></path>
+        </svg>
+      </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-darker-bg">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <span class="text-primary">//</span> ABOUT ME
+        </h2>
+
+        <div class="flex flex-col md:flex-row gap-12">
+          <div class="md:w-1/2 relative">
+            <div
+              class="p-8 border-l-4 border-primary bg-gradient-to-r from-black to-gray-900"
+            >
+              <h3 class="text-2xl font-bold mb-4">
+                Sound Alchemist & Code Composer
+              </h3>
+              <p class="mb-4">
+                I'm a passionate sound designer and developer with over 8 years
+                of experience crafting immersive audio experiences and building
+                innovative audio tools.
+              </p>
+              <p class="mb-4">
+                My journey began in music production, evolved into sound design
+                for games and films, and now encompasses audio software
+                development.
+              </p>
+              <p>
+                I specialize in creating unique sonic identities and developing
+                custom audio solutions that push technical and creative
+                boundaries.
+              </p>
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-4">
+              <div class="flex items-center">
+                <span class="text-primary mr-2">🎛️</span>
+                <span>Audio Engineering</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-primary mr-2">💻</span>
+                <span>Web Audio API</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-primary mr-2">🎮</span>
+                <span>Game Audio</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-primary mr-2">🔊</span>
+                <span>Max/MSP</span>
+              </div>
+              <div class="flex items-center">
+                <span class="text-primary mr-2">🧪</span>
+                <span>Creative Coding</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:w-1/2 relative">
+            <div class="grid grid-cols-3 gap-4 mb-8">
+              <div
+                class="bg-gray-800 aspect-square flex items-center justify-center"
+              >
+                <span class="text-4xl">🎧</span>
+              </div>
+              <div
+                class="bg-gray-800 aspect-square flex items-center justify-center"
+              >
+                <span class="text-4xl">📻</span>
+              </div>
+              <div
+                class="bg-gray-800 aspect-square flex items-center justify-center"
+              >
+                <span class="text-4xl">🎹</span>
+              </div>
+              <div
+                class="bg-gray-800 aspect-square flex items-center justify-center"
+              >
+                <span class="text-4xl">🔊</span>
+              </div>
+              <div
+                class="bg-gray-800 aspect-square flex items-center justify-center"
+              >
+                <span class="text-4xl">🎚️</span>
+              </div>
+              <div
+                class="bg-gray-800 aspect-square flex items-center justify-center"
+              >
+                <span class="text-4xl">💾</span>
+              </div>
+            </div>
+
+            <div class="bg-gray-900 p-6 border border-gray-800">
+              <h4 class="text-xl font-bold mb-4">Technical Skills</h4>
+              <div class="space-y-3">
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span>Sound Design</span>
+                    <span>95%</span>
+                  </div>
+                  <div class="w-full bg-gray-800 rounded-full h-2">
+                    <div
+                      class="bg-primary h-2 rounded-full"
+                      style="width: 95%"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span>Audio Programming</span>
+                    <span>90%</span>
+                  </div>
+                  <div class="w-full bg-gray-800 rounded-full h-2">
+                    <div
+                      class="bg-primary h-2 rounded-full"
+                      style="width: 90%"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span>Web Development</span>
+                    <span>85%</span>
+                  </div>
+                  <div class="w-full bg-gray-800 rounded-full h-2">
+                    <div
+                      class="bg-primary h-2 rounded-full"
+                      style="width: 85%"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span>Music Production</span>
+                    <span>88%</span>
+                  </div>
+                  <div class="w-full bg-gray-800 rounded-full h-2">
+                    <div
+                      class="bg-primary h-2 rounded-full"
+                      style="width: 88%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-dark-bg">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <span class="text-primary">//</span> PROJECTS
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="project-card relative rounded-lg overflow-hidden p-6 h-full"
+          >
+            <div class="text-4xl mb-4 text-primary">🎵</div>
+            <h3 class="text-xl font-bold mb-2">Sonic Explorer</h3>
+            <p class="text-gray-400 mb-4">
+              Interactive web audio playground for sound exploration and
+              manipulation.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >Web Audio API</span
+              >
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >React</span
+              >
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >Tone.js</span
+              >
+            </div>
+            <button
+              class="view-details-btn px-4 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:bg-opacity-10 transition-all duration-300"
+              data-project="1"
+            >
+              View Details
+            </button>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="project-card relative rounded-lg overflow-hidden p-6 h-full"
+          >
+            <div class="text-4xl mb-4 text-primary">🎮</div>
+            <h3 class="text-xl font-bold mb-2">Echo VR</h3>
+            <p class="text-gray-400 mb-4">
+              Immersive 3D audio experience for virtual reality environments.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >FMOD</span
+              >
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >Unity</span
+              >
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >Ambisonics</span
+              >
+            </div>
+            <button
+              class="view-details-btn px-4 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:bg-opacity-10 transition-all duration-300"
+              data-project="2"
+            >
+              View Details
+            </button>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="project-card relative rounded-lg overflow-hidden p-6 h-full"
+          >
+            <div class="text-4xl mb-4 text-primary">🔊</div>
+            <h3 class="text-xl font-bold mb-2">Noise Generator Pro</h3>
+            <p class="text-gray-400 mb-4">
+              Advanced noise generation and filtering VST plugin for producers.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >JUCE</span
+              >
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >C++</span
+              >
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >DSP</span
+              >
+            </div>
+            <button
+              class="view-details-btn px-4 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:bg-opacity-10 transition-all duration-300"
+              data-project="3"
+            >
+              View Details
+            </button>
+          </div>
+
+          <!-- Project 4 -->
+          <div
+            class="project-card relative rounded-lg overflow-hidden p-6 h-full"
+          >
+            <div class="text-4xl mb-4 text-primary">🎛️</div>
+            <h3 class="text-xl font-bold mb-2">MixMaster AI</h3>
+            <p class="text-gray-400 mb-4">
+              AI-powered audio mixing assistant with machine learning.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >Python</span
+              >
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >TensorFlow</span
+              >
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >Audio Analysis</span
+              >
+            </div>
+            <button
+              class="view-details-btn px-4 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:bg-opacity-10 transition-all duration-300"
+              data-project="4"
+            >
+              View Details
+            </button>
+          </div>
+
+          <!-- Project 5 -->
+          <div
+            class="project-card relative rounded-lg overflow-hidden p-6 h-full"
+          >
+            <div class="text-4xl mb-4 text-primary">📻</div>
+            <h3 class="text-xl font-bold mb-2">Retro Radio</h3>
+            <p class="text-gray-400 mb-4">
+              Web-based vintage radio simulator with authentic sound effects.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >JavaScript</span
+              >
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >Howler.js</span
+              >
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >UI Design</span
+              >
+            </div>
+            <button
+              class="view-details-btn px-4 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:bg-opacity-10 transition-all duration-300"
+              data-project="5"
+            >
+              View Details
+            </button>
+          </div>
+
+          <!-- Project 6 -->
+          <div
+            class="project-card relative rounded-lg overflow-hidden p-6 h-full"
+          >
+            <div class="text-4xl mb-4 text-primary">🎧</div>
+            <h3 class="text-xl font-bold mb-2">Binaural Beats</h3>
+            <p class="text-gray-400 mb-4">
+              Meditation app with customizable binaural beat generator.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >Swift</span
+              >
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >iOS</span
+              >
+              <span class="px-3 py-1 bg-gray-800 rounded-full text-sm"
+                >AudioKit</span
+              >
+            </div>
+            <button
+              class="view-details-btn px-4 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:bg-opacity-10 transition-all duration-300"
+              data-project="6"
+            >
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Modals -->
+    <div
+      id="project-modal"
+      class="modal fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 opacity-0 invisible transition-all duration-300"
+    >
+      <div
+        class="modal-content bg-darker-bg rounded-lg max-w-3xl w-full mx-4 max-h-[90vh] overflow-y-auto"
+      >
+        <div class="p-8">
+          <button
+            class="close-modal absolute top-4 right-4 text-gray-400 hover:text-white"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+
+          <div id="modal-content" class="pt-4">
+            <!-- Content will be inserted here by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 px-6 bg-darker-bg">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <span class="text-primary">//</span> BLOG
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <!-- Blog Post 1 -->
+          <div
+            class="bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="h-48 bg-gray-800 flex items-center justify-center">
+              <span class="text-5xl">🎚️</span>
+            </div>
+            <div class="p-6">
+              <div class="text-primary text-sm mb-2">May 15, 2023</div>
+              <h3 class="text-xl font-bold mb-3">
+                The Art of Dynamic Range Compression
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Exploring advanced techniques for transparent dynamic range
+                control in modern music production.
+              </p>
+              <a href="#" class="text-primary flex items-center group">
+                <span class="mr-2">Read More</span>
+                <svg
+                  class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 2 -->
+          <div
+            class="bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="h-48 bg-gray-800 flex items-center justify-center">
+              <span class="text-5xl">💻</span>
+            </div>
+            <div class="p-6">
+              <div class="text-primary text-sm mb-2">April 2, 2023</div>
+              <h3 class="text-xl font-bold mb-3">
+                Building Audio Web Apps with Web Audio API
+              </h3>
+              <p class="text-gray-400 mb-4">
+                A practical guide to creating interactive audio experiences in
+                the browser.
+              </p>
+              <a href="#" class="text-primary flex items-center group">
+                <span class="mr-2">Read More</span>
+                <svg
+                  class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Blog Post 3 -->
+          <div
+            class="bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="h-48 bg-gray-800 flex items-center justify-center">
+              <span class="text-5xl">🎮</span>
+            </div>
+            <div class="p-6">
+              <div class="text-primary text-sm mb-2">February 28, 2023</div>
+              <h3 class="text-xl font-bold mb-3">
+                Immersive Audio Techniques for VR Games
+              </h3>
+              <p class="text-gray-400 mb-4">
+                Creating believable 3D soundscapes that enhance player immersion
+                in virtual worlds.
+              </p>
+              <a href="#" class="text-primary flex items-center group">
+                <span class="mr-2">Read More</span>
+                <svg
+                  class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a
+            href="#"
+            class="inline-block px-6 py-3 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:bg-opacity-10 transition-all duration-300"
+          >
+            View All Posts
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-dark-bg">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          <span class="text-primary">//</span> CONTACT
+        </h2>
+
+        <div class="flex flex-col md:flex-row gap-12">
+          <div class="md:w-1/2">
+            <h3 class="text-2xl font-bold mb-6">
+              Let's Create Something Amazing
+            </h3>
+            <p class="text-gray-400 mb-8">
+              I'm always interested in hearing about new projects and
+              opportunities. Whether you have a question or just want to say hi,
+              I'll try my best to get back to you!
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <span class="text-primary mr-4 mt-1">✉️</span>
+                <div>
+                  <h4 class="font-bold">Email</h4>
+                  <a
+                    href="mailto:hello@mrboombox.com"
+                    class="text-gray-400 hover:text-primary transition-colors"
+                    >hello@mrboombox.com</a
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <span class="text-primary mr-4 mt-1">📍</span>
+                <div>
+                  <h4 class="font-bold">Location</h4>
+                  <p class="text-gray-400">Berlin, Germany</p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <span class="text-primary mr-4 mt-1">🕒</span>
+                <div>
+                  <h4 class="font-bold">Working Hours</h4>
+                  <p class="text-gray-400">Monday - Friday: 9am - 6pm CET</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-12">
+              <h4 class="font-bold mb-4">Connect With Me</h4>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="social-icon text-gray-400 hover:text-primary text-xl"
+                >
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="#"
+                  class="social-icon text-gray-400 hover:text-primary text-xl"
+                >
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="#"
+                  class="social-icon text-gray-400 hover:text-primary text-xl"
+                >
+                  <span>Twitter</span>
+                </a>
+                <a
+                  href="#"
+                  class="social-icon text-gray-400 hover:text-primary text-xl"
+                >
+                  <span>SoundCloud</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:w-1/2">
+            <form id="contact-form" class="space-y-6">
+              <div>
+                <label for="name" class="block mb-2">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="input-field w-full px-4 py-3 bg-transparent focus:outline-none"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="email" class="block mb-2">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="input-field w-full px-4 py-3 bg-transparent focus:outline-none"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="subject" class="block mb-2">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="input-field w-full px-4 py-3 bg-transparent focus:outline-none"
+                  required
+                />
+              </div>
+
+              <div>
+                <label for="message" class="block mb-2">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  class="input-field w-full px-4 py-3 bg-transparent focus:outline-none"
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="btn-primary px-8 py-3 bg-primary text-black font-bold rounded-full hover:bg-opacity-90 transition-all duration-300 w-full"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-gray-800">
+      <div
+        class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center"
+      >
+        <div class="text-2xl font-bold mb-4 md:mb-0">
+          <span class="text-primary">MR.</span
+          ><span class="text-white">BOOMBOX</span>
+        </div>
+
+        <div class="text-gray-400">
+          &copy; 2023 Mr.Boombox. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Custom cursor
+      const cursor = document.querySelector(".cursor");
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+      });
+
+      // Make cursor bigger on hover
+      const interactiveElements = document.querySelectorAll(
+        "a, button, .view-details-btn, input, textarea"
+      );
+      interactiveElements.forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          cursor.classList.add("active");
+        });
+        el.addEventListener("mouseleave", () => {
+          cursor.classList.remove("active");
+        });
+      });
+
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Typing animation
+      const typingText = document.getElementById("typing-text");
+      const roles = [
+        "Sound Designer",
+        "Developer",
+        "Audio Engineer",
+        "Creative Coder",
+      ];
+      let roleIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function type() {
+        const currentRole = roles[roleIndex];
+
+        if (isDeleting) {
+          typingText.textContent = currentRole.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          typingText.textContent = currentRole.substring(0, charIndex + 1);
+          charIndex++;
+        }
+
+        if (!isDeleting && charIndex === currentRole.length) {
+          isDeleting = true;
+          setTimeout(type, 1000);
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+          setTimeout(type, 500);
+        } else {
+          const speed = isDeleting ? 50 : 150;
+          setTimeout(type, speed);
+        }
+      }
+
+      setTimeout(type, 1000);
+
+      // Audio bars animation
+      const bars = document.querySelectorAll(".bar");
+      function animateBars() {
+        bars.forEach((bar) => {
+          const randomHeight = Math.floor(Math.random() * 80) + 10;
+          const randomOpacity = Math.random() * 0.4 + 0.6;
+          bar.style.height = `${randomHeight}%`;
+          bar.style.opacity = randomOpacity;
+        });
+      }
+
+      setInterval(animateBars, 200);
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            mobileMenu.classList.add("hidden");
+          }
+        });
+      });
+
+      // Project modals
+      const projectData = {
+        1: {
+          title: "Sonic Explorer",
+          icon: "🎵",
+          description:
+            "Sonic Explorer is an interactive web audio playground that allows users to explore and manipulate sound in real-time. The application features a modular interface where users can connect different audio nodes to create unique soundscapes.",
+          technologies: ["Web Audio API", "React", "Tone.js", "Redux"],
+          features: [
+            "Drag-and-drop modular interface",
+            "20+ built-in audio effects",
+            "Real-time visualization",
+            "Save and share presets",
+            "MIDI controller support",
+          ],
+          link: "#",
+        },
+        2: {
+          title: "Echo VR",
+          icon: "🎮",
+          description:
+            "Echo VR is an immersive 3D audio experience designed specifically for virtual reality environments. The system provides realistic sound propagation and spatialization that responds to the user's movements and interactions.",
+          technologies: ["FMOD", "Unity", "Ambisonics", "C#"],
+          features: [
+            "Dynamic reverb zones",
+            "Real-time occlusion modeling",
+            "Customizable acoustic materials",
+            "Doppler effect simulation",
+            "Cross-platform compatibility",
+          ],
+          link: "#",
+        },
+        3: {
+          title: "Noise Generator Pro",
+          icon: "🔊",
+          description:
+            "Noise Generator Pro is a professional VST/AU plugin that provides advanced noise generation and filtering capabilities. Designed for sound designers and music producers, it offers unprecedented control over noise characteristics.",
+          technologies: ["JUCE", "C++", "DSP", "VST3"],
+          features: [
+            "12 noise algorithms",
+            "Multi-mode filter section",
+            "Modulation matrix",
+            "64-step sequencer",
+            "Full automation support",
+          ],
+          link: "#",
+        },
+        4: {
+          title: "MixMaster AI",
+          icon: "🎛️",
+          description:
+            "MixMaster AI is an intelligent audio mixing assistant that uses machine learning to analyze and enhance mixes. The system learns from professional mixes and provides suggestions for improvement.",
+          technologies: ["Python", "TensorFlow", "Librosa", "Flask"],
+          features: [
+            "Automatic EQ balancing",
+            "Dynamic range analysis",
+            "Stereo imaging correction",
+            "Reference track matching",
+            "Customizable learning models",
+          ],
+          link: "#",
+        },
+        5: {
+          title: "Retro Radio",
+          icon: "📻",
+          description:
+            "Retro Radio is a web-based vintage radio simulator that recreates the experience of tuning into old-school broadcasts. The application features authentic sound effects and a collection of classic radio shows.",
+          technologies: ["JavaScript", "Howler.js", "WebGL", "Node.js"],
+          features: [
+            "10+ vintage radio models",
+            "Tuning drift simulation",
+            "Atmospheric interference",
+            "Programmable station presets",
+            "Social sharing",
+          ],
+          link: "#",
+        },
+        6: {
+          title: "Binaural Beats",
+          icon: "🎧",
+          description:
+            "Binaural Beats is a meditation and focus app that generates customizable binaural beat sequences. The app includes guided meditation programs and scientifically designed frequency combinations.",
+          technologies: ["Swift", "AudioKit", "CoreData", "HealthKit"],
+          features: [
+            "Custom beat frequency mixer",
+            "100+ preset programs",
+            "Sleep timer",
+            "Health data integration",
+            "Offline mode",
+          ],
+          link: "#",
+        },
+      };
+
+      const viewDetailsButtons = document.querySelectorAll(".view-details-btn");
+      const projectModal = document.getElementById("project-modal");
+      const modalContent = document.getElementById("modal-content");
+      const closeModal = document.querySelector(".close-modal");
+
+      viewDetailsButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const projectId = button.getAttribute("data-project");
+          const project = projectData[projectId];
+
+          let featuresHtml = "";
+          project.features.forEach((feature) => {
+            featuresHtml += `<li class="flex items-start mb-2">
+                        <span class="text-primary mr-2">✓</span>
+                        <span>${feature}</span>
+                    </li>`;
+          });
+
+          let technologiesHtml = "";
+          project.technologies.forEach((tech) => {
+            technologiesHtml += `<span class="inline-block px-3 py-1 bg-gray-800 rounded-full text-sm mr-2 mb-2">${tech}</span>`;
+          });
+
+          modalContent.innerHTML = `
+                    <div class="flex items-center mb-6">
+                        <span class="text-4xl mr-4">${project.icon}</span>
+                        <h3 class="text-2xl font-bold">${project.title}</h3>
+                    </div>
+                    
+                    <p class="text-gray-400 mb-6">${project.description}</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold mb-3">Technologies Used</h4>
+                        <div class="flex flex-wrap">
+                            ${technologiesHtml}
+                        </div>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h4 class="font-bold mb-3">Key Features</h4>
+                        <ul class="list-none">
+                            ${featuresHtml}
+                        </ul>
+                    </div>
+                    
+                    <a href="${project.link}" class="inline-block px-6 py-3 bg-primary text-black font-bold rounded-full hover:bg-opacity-90 transition-all duration-300">
+                        Visit Project
+                    </a>
+                `;
+
+          projectModal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      closeModal.addEventListener("click", () => {
+        projectModal.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+
+      projectModal.addEventListener("click", (e) => {
+        if (e.target === projectModal) {
+          projectModal.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      });
+
+      // Form validation
+      const contactForm = document.getElementById("contact-form");
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Simple validation
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const subject = document.getElementById("subject").value;
+        const message = document.getElementById("message").value;
+
+        if (name && email && subject && message) {
+          alert("Thank you for your message! I will get back to you soon.");
+          contactForm.reset();
+        } else {
+          alert("Please fill in all fields.");
+        }
+      });
+    </script>
+  </body>
+</html>

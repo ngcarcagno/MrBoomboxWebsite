@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mr.Boombox - Sound Designer & Programmer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap");
+
+      body {
+        font-family: "Urbanist", sans-serif;
+        background-color: #0a0a0a;
+        color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      .title-font {
+        font-family: "Space Grotesk", sans-serif;
+      }
+
+      .visualizer {
+        animation: pulse 2s infinite alternate;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .audio-bar {
+        height: 2px;
+        background: linear-gradient(90deg, #00f0ff, #0084ff);
+        animation: equalize 1.5s infinite ease-in-out;
+        transform-origin: bottom;
+      }
+
+      @keyframes equalize {
+        0%,
+        100% {
+          transform: scaleY(0.5);
+        }
+        50% {
+          transform: scaleY(1);
+        }
+      }
+
+      .code-bg {
+        background: rgba(0, 132, 255, 0.05);
+        border-left: 3px solid #0084ff;
+      }
+
+      .hover-grow {
+        transition: transform 0.3s ease;
+      }
+
+      .hover-grow:hover {
+        transform: scale(1.05);
+      }
+
+      .glitch {
+        position: relative;
+      }
+
+      .glitch::before,
+      .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .glitch::before {
+        left: 2px;
+        text-shadow: -2px 0 #00f0ff;
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim 5s infinite linear alternate-reverse;
+      }
+
+      .glitch::after {
+        left: -2px;
+        text-shadow: -2px 0 #ff00aa;
+        clip: rect(44px, 450px, 56px, 0);
+        animation: glitch-anim2 5s infinite linear alternate-reverse;
+      }
+
+      @keyframes glitch-anim {
+        0% {
+          clip: rect(62px, 9999px, 30px, 0);
+        }
+        20% {
+          clip: rect(37px, 9999px, 74px, 0);
+        }
+        40% {
+          clip: rect(87px, 9999px, 24px, 0);
+        }
+        60% {
+          clip: rect(98px, 9999px, 73px, 0);
+        }
+        80% {
+          clip: rect(99px, 9999px, 95px, 0);
+        }
+        100% {
+          clip: rect(52px, 9999px, 30px, 0);
+        }
+      }
+
+      @keyframes glitch-anim2 {
+        0% {
+          clip: rect(62px, 9999px, 72px, 0);
+        }
+        20% {
+          clip: rect(94px, 9999px, 50px, 0);
+        }
+        40% {
+          clip: rect(23px, 9999px, 38px, 0);
+        }
+        60% {
+          clip: rect(61px, 9999px, 5px, 0);
+        }
+        80% {
+          clip: rect(15px, 9999px, 68px, 0);
+        }
+        100% {
+          clip: rect(41px, 9999px, 34px, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="fixed w-full bg-black bg-opacity-90 backdrop-filter backdrop-blur-sm z-50 border-b border-gray-800"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-2">
+            <div class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+          </div>
+
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="#"
+              class="text-white hover:text-cyan-400 transition duration-300 font-medium"
+              >Work</a
+            >
+            <a
+              href="#"
+              class="text-white hover:text-cyan-400 transition duration-300 font-medium"
+              >Services</a
+            >
+            <a
+              href="#"
+              class="text-white hover:text-cyan-400 transition duration-300 font-medium"
+              >About</a
+            >
+            <a
+              href="#"
+              class="text-white hover:text-cyan-400 transition duration-300 font-medium"
+              >Contact</a
+            >
+          </nav>
+
+          <div class="flex items-center space-x-4">
+            <a
+              href="#"
+              class="text-white hover:text-cyan-400 transition duration-300"
+            >
+              <i class="fab fa-github text-xl"></i>
+            </a>
+            <a
+              href="#"
+              class="text-white hover:text-cyan-400 transition duration-300"
+            >
+              <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a
+              href="#"
+              class="text-white hover:text-cyan-400 transition duration-300"
+            >
+              <i class="fab fa-soundcloud text-xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="min-h-screen flex items-center">
+      <div class="container mx-auto px-6 pt-24 pb-16">
+        <div class="flex flex-col lg:flex-row items-center justify-between">
+          <div class="lg:w-1/2 mb-16 lg:mb-0 relative">
+            <div
+              class="absolute -left-8 -top-8 w-64 h-64 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"
+            ></div>
+            <div
+              class="absolute -right-8 -bottom-8 w-64 h-64 bg-blue-700 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"
+            ></div>
+            <div
+              class="absolute left-20 -bottom-8 w-64 h-64 bg-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"
+            ></div>
+
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 title-font relative">
+              <span class="glitch" data-text="Mr.Boombox">Mr.Boombox</span>
+            </h1>
+
+            <h2
+              class="text-2xl md:text-3xl font-semibold mb-8 text-cyan-400 flex items-center"
+            >
+              <div class="visualizer mr-4">
+                <div class="flex items-end h-8 space-x-1">
+                  <div
+                    class="audio-bar w-1"
+                    style="animation-delay: 0.1s; height: 5px"
+                  ></div>
+                  <div
+                    class="audio-bar w-1"
+                    style="animation-delay: 0.3s; height: 10px"
+                  ></div>
+                  <div
+                    class="audio-bar w-1"
+                    style="animation-delay: 0.5s; height: 15px"
+                  ></div>
+                  <div
+                    class="audio-bar w-1"
+                    style="animation-delay: 0.2s; height: 20px"
+                  ></div>
+                  <div
+                    class="audio-bar w-1"
+                    style="animation-delay: 0.4s; height: 15px"
+                  ></div>
+                  <div
+                    class="audio-bar w-1"
+                    style="animation-delay: 0.6s; height: 10px"
+                  ></div>
+                  <div
+                    class="audio-bar w-1"
+                    style="animation-delay: 0.3s; height: 5px"
+                  ></div>
+                </div>
+              </div>
+              Sound Designer & Creative Programmer
+            </h2>
+
+            <p class="text-gray-300 mb-10 text-lg leading-relaxed max-w-2xl">
+              I craft immersive audio experiences through code and creativity.
+              Blending the art of sound with the precision of programming to
+              create unique digital experiences that resonate with audiences.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#"
+                class="px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-semibold hover-grow hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
+              >
+                Explore My Work
+              </a>
+              <a
+                href="#"
+                class="px-8 py-3 border border-gray-700 rounded-full font-semibold hover-grow hover:bg-gray-800 transition-all duration-300"
+              >
+                Contact Me
+              </a>
+            </div>
+
+            <div class="mt-12 flex items-center space-x-4">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center hover-grow"
+              >
+                <i class="fas fa-headphones text-xl"></i>
+              </div>
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center hover-grow"
+              >
+                <i class="fas fa-code text-xl"></i>
+              </div>
+              <div
+                class="w-12 h-12 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center hover-grow"
+              >
+                <i class="fab fa-unity text-xl"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:w-1/2 relative">
+            <div class="relative z-10 code-bg p-6 rounded-lg lg:ml-16">
+              <div class="flex space-x-2 mb-4">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+              <pre class="text-gray-300 font-mono text-sm overflow-x-auto">
+                            <code>
+<span class="text-blue-400">const</span> <span class="text-cyan-400">SoundDesigner</span> = {
+    <span class="text-purple-400">name</span>: <span class="text-yellow-300">"Mr.Boombox"</span>,
+    <span class="text-purple-400">specialties</span>: [
+        <span class="text-yellow-300">"Interactive Audio"</span>,
+        <span class="text-yellow-300">"Sound Synthesis"</span>,
+        <span class="text-yellow-300">"DSP Programming"</span>,
+        <span class="text-yellow-300">"Game Audio"</span>,
+        <span class="text-yellow-300">"Creative Coding"</span>
+    ],
+    <span class="text-purple-400">tools</span>: {
+        <span class="text-purple-400">daw</span>: [<span class="text-yellow-300">"Ableton"</span>, <span class="text-yellow-300">"Reaper"</span>],
+        <span class="text-purple-400">programming</span>: [<span class="text-yellow-300">"JavaScript"</span>, <span class="text-yellow-300">"Python"</span>, <span class="text-yellow-300">"C++"</span>],
+        <span class="text-purple-400">audioMiddleware</span>: [<span class="text-yellow-300">"FMOD"</span>, <span class="text-yellow-300">"Wwise"</span>],
+        <span class="text-purple-400">creative</span>: [<span class="text-yellow-300">"Max/MSP"</span>, <span class="text-yellow-300">"Pure Data"</span>, <span class="text-yellow-300">"SuperCollider"</span>]
+    },
+    <span class="text-purple-400">philosophy</span>: <span class="text-yellow-300">"Every sound tells a story, every line of code shapes its journey."</span>
+};
+
+<span class="text-blue-400">function</span> <span class="text-cyan-400">createExperience</span>() {
+    <span class="text-gray-500">// Combining sound design with software engineering</span>
+    <span class="text-blue-400">return</span> {
+        <span class="text-purple-400">audio</span>: <span class="text-yellow-300">"immersive"</span>,
+        <span class="text-purple-400">interactivity</span>: <span class="text-yellow-300">"responsive"</span>,
+        <span class="text-purple-400">innovation</span>: <span class="text-yellow-300">"cutting-edge"</span>
+    };
+}</code>
+                        </pre>
+            </div>
+
+            <div
+              class="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-cyan-500 mix-blend-overlay filter blur-3xl opacity-30"
+            ></div>
+            <div
+              class="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-blue-700 mix-blend-overlay filter blur-3xl opacity-30"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Audio visualization bars animation on scroll
+      document.addEventListener("scroll", function () {
+        const audioBars = document.querySelectorAll(".audio-bar");
+        audioBars.forEach((bar, index) => {
+          const scrollPosition = window.scrollY;
+          const scale =
+            0.5 + index * 0.1 + Math.sin(scrollPosition * 0.01) * 0.5;
+          bar.style.transform = `scaleY(${Math.max(0.3, scale)})`;
+        });
+      });
+    </script>
+  </body>
+</html>

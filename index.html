@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<!-- saved from url=(0140)https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/ -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mr.Boombox | Sound Designer &amp; Programmer</title>
+    <script src="./saved_resource"></script>
+    <link rel="stylesheet" href="./all.min.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #0f0f1a;
+        color: #e0e0e0;
+        overflow-x: hidden;
+      }
+
+      .orbitron {
+        font-family: "Orbitron", sans-serif;
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, #ff3366, #ff9933);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background: linear-gradient(90deg, #ff3366, #ff9933);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .card {
+        background: rgba(30, 30, 50, 0.5);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .equalizer {
+        display: flex;
+        align-items: flex-end;
+        height: 40px;
+        gap: 3px;
+      }
+
+      .bar {
+        width: 4px;
+        background: linear-gradient(to top, #ff3366, #ff9933);
+        border-radius: 2px;
+        animation: equalize 1s infinite alternate;
+      }
+
+      @keyframes equalize {
+        0% {
+          height: 10%;
+        }
+        100% {
+          height: 100%;
+        }
+      }
+
+      .bar:nth-child(1) {
+        animation-delay: -1.2s;
+      }
+      .bar:nth-child(2) {
+        animation-delay: -1.1s;
+      }
+      .bar:nth-child(3) {
+        animation-delay: -1s;
+      }
+      .bar:nth-child(4) {
+        animation-delay: -0.9s;
+      }
+      .bar:nth-child(5) {
+        animation-delay: -0.8s;
+      }
+      .bar:nth-child(6) {
+        animation-delay: -0.7s;
+      }
+      .bar:nth-child(7) {
+        animation-delay: -0.6s;
+      }
+      .bar:nth-child(8) {
+        animation-delay: -0.5s;
+      }
+
+      .project-card {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .project-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .project-card:hover .project-overlay {
+        opacity: 1;
+      }
+
+      .boombox-svg {
+        filter: drop-shadow(0 0 8px rgba(255, 51, 102, 0.6));
+      }
+
+      .contact-input {
+        background: rgba(30, 30, 50, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #e0e0e0;
+        transition: border-color 0.3s ease;
+      }
+
+      .contact-input:focus {
+        border-color: #ff3366;
+        outline: none;
+      }
+
+      .btn-gradient {
+        background: linear-gradient(90deg, #ff3366, #ff9933);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .btn-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+      }
+
+      .social-icon {
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      .social-icon:hover {
+        transform: translateY(-3px);
+        color: #ff3366;
+      }
+
+      /* Custom cursor */
+      .custom-cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba(255, 51, 102, 0.5);
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        transition: width 0.2s, height 0.2s, background 0.2s;
+        mix-blend-mode: difference;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .custom-cursor {
+          display: none;
+        }
+      }
+    </style>
+    <style>
+      *,
+      ::before,
+      ::after {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246 / 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style: ;
+      }
+      ::backdrop {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgb(59 130 246 / 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style: ;
+      } /* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */
+      *,
+      ::after,
+      ::before {
+        box-sizing: border-box;
+        border-width: 0;
+        border-style: solid;
+        border-color: #e5e7eb;
+      }
+      ::after,
+      ::before {
+        --tw-content: "";
+      }
+      :host,
+      html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        -moz-tab-size: 4;
+        tab-size: 4;
+        font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        margin: 0;
+        line-height: inherit;
+      }
+      hr {
+        height: 0;
+        color: inherit;
+        border-top-width: 1px;
+      }
+      abbr:where([title]) {
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      b,
+      strong {
+        font-weight: bolder;
+      }
+      code,
+      kbd,
+      pre,
+      samp {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        font-size: 1em;
+      }
+      small {
+        font-size: 80%;
+      }
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+      sub {
+        bottom: -0.25em;
+      }
+      sup {
+        top: -0.5em;
+      }
+      table {
+        text-indent: 0;
+        border-color: inherit;
+        border-collapse: collapse;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        font-family: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        font-size: 100%;
+        font-weight: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        margin: 0;
+        padding: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      input:where([type="button"]),
+      input:where([type="reset"]),
+      input:where([type="submit"]) {
+        -webkit-appearance: button;
+        background-color: transparent;
+        background-image: none;
+      }
+      :-moz-focusring {
+        outline: auto;
+      }
+      :-moz-ui-invalid {
+        box-shadow: none;
+      }
+      progress {
+        vertical-align: baseline;
+      }
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        height: auto;
+      }
+      [type="search"] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px;
+      }
+      ::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit;
+      }
+      summary {
+        display: list-item;
+      }
+      blockquote,
+      dd,
+      dl,
+      figure,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      hr,
+      p,
+      pre {
+        margin: 0;
+      }
+      fieldset {
+        margin: 0;
+        padding: 0;
+      }
+      legend {
+        padding: 0;
+      }
+      menu,
+      ol,
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      dialog {
+        padding: 0;
+      }
+      textarea {
+        resize: vertical;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        opacity: 1;
+        color: #9ca3af;
+      }
+      [role="button"],
+      button {
+        cursor: pointer;
+      }
+      :disabled {
+        cursor: default;
+      }
+      audio,
+      canvas,
+      embed,
+      iframe,
+      img,
+      object,
+      svg,
+      video {
+        display: block;
+        vertical-align: middle;
+      }
+      img,
+      video {
+        max-width: 100%;
+        height: auto;
+      }
+      [hidden]:where(:not([hidden="until-found"])) {
+        display: none;
+      }
+      .container {
+        width: 100%;
+      }
+      @media (min-width: 640px) {
+        .container {
+          max-width: 640px;
+        }
+      }
+      @media (min-width: 768px) {
+        .container {
+          max-width: 768px;
+        }
+      }
+      @media (min-width: 1024px) {
+        .container {
+          max-width: 1024px;
+        }
+      }
+      @media (min-width: 1280px) {
+        .container {
+          max-width: 1280px;
+        }
+      }
+      @media (min-width: 1536px) {
+        .container {
+          max-width: 1536px;
+        }
+      }
+      .fixed {
+        position: fixed;
+      }
+      .absolute {
+        position: absolute;
+      }
+      .relative {
+        position: relative;
+      }
+      .inset-0 {
+        inset: 0px;
+      }
+      .bottom-10 {
+        bottom: 2.5rem;
+      }
+      .left-1\/2 {
+        left: 50%;
+      }
+      .right-4 {
+        right: 1rem;
+      }
+      .top-4 {
+        top: 1rem;
+      }
+      .z-0 {
+        z-index: 0;
+      }
+      .z-10 {
+        z-index: 10;
+      }
+      .z-50 {
+        z-index: 50;
+      }
+      .mx-4 {
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+      .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .mb-12 {
+        margin-bottom: 3rem;
+      }
+      .mb-16 {
+        margin-bottom: 4rem;
+      }
+      .mb-2 {
+        margin-bottom: 0.5rem;
+      }
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+      .mb-6 {
+        margin-bottom: 1.5rem;
+      }
+      .mb-8 {
+        margin-bottom: 2rem;
+      }
+      .mr-3 {
+        margin-right: 0.75rem;
+      }
+      .mr-4 {
+        margin-right: 1rem;
+      }
+      .mt-16 {
+        margin-top: 4rem;
+      }
+      .mt-8 {
+        margin-top: 2rem;
+      }
+      .block {
+        display: block;
+      }
+      .flex {
+        display: flex;
+      }
+      .grid {
+        display: grid;
+      }
+      .hidden {
+        display: none;
+      }
+      .aspect-square {
+        aspect-ratio: 1 / 1;
+      }
+      .aspect-video {
+        aspect-ratio: 16 / 9;
+      }
+      .h-10 {
+        height: 2.5rem;
+      }
+      .h-12 {
+        height: 3rem;
+      }
+      .h-2 {
+        height: 0.5rem;
+      }
+      .h-3\/4 {
+        height: 75%;
+      }
+      .h-40 {
+        height: 10rem;
+      }
+      .h-48 {
+        height: 12rem;
+      }
+      .h-6 {
+        height: 1.5rem;
+      }
+      .h-full {
+        height: 100%;
+      }
+      .min-h-screen {
+        min-height: 100vh;
+      }
+      .w-10 {
+        width: 2.5rem;
+      }
+      .w-12 {
+        width: 3rem;
+      }
+      .w-3\/4 {
+        width: 75%;
+      }
+      .w-40 {
+        width: 10rem;
+      }
+      .w-6 {
+        width: 1.5rem;
+      }
+      .w-full {
+        width: 100%;
+      }
+      .max-w-3xl {
+        max-width: 48rem;
+      }
+      .-translate-x-1\/2 {
+        --tw-translate-x: -50%;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      .transform {
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x))
+          skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x))
+          scaleY(var(--tw-scale-y));
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(-25%);
+          animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        50% {
+          transform: none;
+          animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
+      }
+      .animate-bounce {
+        animation: bounce 1s infinite;
+      }
+      .list-disc {
+        list-style-type: disc;
+      }
+      .grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .flex-col {
+        flex-direction: column;
+      }
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
+      .items-center {
+        align-items: center;
+      }
+      .justify-end {
+        justify-content: flex-end;
+      }
+      .justify-center {
+        justify-content: center;
+      }
+      .justify-between {
+        justify-content: space-between;
+      }
+      .gap-12 {
+        gap: 3rem;
+      }
+      .gap-2 {
+        gap: 0.5rem;
+      }
+      .gap-6 {
+        gap: 1.5rem;
+      }
+      .gap-8 {
+        gap: 2rem;
+      }
+      .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+        margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(1rem * var(--tw-space-x-reverse));
+        margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-x-reverse: 0;
+        margin-right: calc(2rem * var(--tw-space-x-reverse));
+        margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+      }
+      .space-y-1 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+      }
+      .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+      }
+      .space-y-6 > :not([hidden]) ~ :not([hidden]) {
+        --tw-space-y-reverse: 0;
+        margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+        margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+      }
+      .overflow-hidden {
+        overflow: hidden;
+      }
+      .rounded-full {
+        border-radius: 9999px;
+      }
+      .rounded-lg {
+        border-radius: 0.5rem;
+      }
+      .rounded-xl {
+        border-radius: 0.75rem;
+      }
+      .border {
+        border-width: 1px;
+      }
+      .border-4 {
+        border-width: 4px;
+      }
+      .border-b {
+        border-bottom-width: 1px;
+      }
+      .border-t {
+        border-top-width: 1px;
+      }
+      .border-gray-600 {
+        --tw-border-opacity: 1;
+        border-color: rgb(75 85 99 / var(--tw-border-opacity, 1));
+      }
+      .border-gray-800 {
+        --tw-border-opacity: 1;
+        border-color: rgb(31 41 55 / var(--tw-border-opacity, 1));
+      }
+      .border-white {
+        --tw-border-opacity: 1;
+        border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+      }
+      .bg-\[\#0a0a14\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(10 10 20 / var(--tw-bg-opacity, 1));
+      }
+      .bg-\[\#0f0f1a\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(15 15 26 / var(--tw-bg-opacity, 1));
+      }
+      .bg-\[\#1e1e32\] {
+        --tw-bg-opacity: 1;
+        background-color: rgb(30 30 50 / var(--tw-bg-opacity, 1));
+      }
+      .bg-black {
+        --tw-bg-opacity: 1;
+        background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+      }
+      .bg-gray-700 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
+      }
+      .bg-gray-800 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
+      }
+      .bg-opacity-50 {
+        --tw-bg-opacity: 0.5;
+      }
+      .bg-opacity-80 {
+        --tw-bg-opacity: 0.8;
+      }
+      .bg-gradient-to-br {
+        background-image: linear-gradient(
+          to bottom right,
+          var(--tw-gradient-stops)
+        );
+      }
+      .bg-gradient-to-r {
+        background-image: linear-gradient(to right, var(--tw-gradient-stops));
+      }
+      .from-\[\#1e1e32\] {
+        --tw-gradient-from: #1e1e32 var(--tw-gradient-from-position);
+        --tw-gradient-to: rgb(30 30 50 / 0) var(--tw-gradient-to-position);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      }
+      .from-\[\#ff3366\] {
+        --tw-gradient-from: #ff3366 var(--tw-gradient-from-position);
+        --tw-gradient-to: rgb(255 51 102 / 0) var(--tw-gradient-to-position);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      }
+      .from-blue-600 {
+        --tw-gradient-from: #2563eb var(--tw-gradient-from-position);
+        --tw-gradient-to: rgb(37 99 235 / 0) var(--tw-gradient-to-position);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      }
+      .from-green-600 {
+        --tw-gradient-from: #16a34a var(--tw-gradient-from-position);
+        --tw-gradient-to: rgb(22 163 74 / 0) var(--tw-gradient-to-position);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      }
+      .from-pink-600 {
+        --tw-gradient-from: #db2777 var(--tw-gradient-from-position);
+        --tw-gradient-to: rgb(219 39 119 / 0) var(--tw-gradient-to-position);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      }
+      .from-purple-600 {
+        --tw-gradient-from: #9333ea var(--tw-gradient-from-position);
+        --tw-gradient-to: rgb(147 51 234 / 0) var(--tw-gradient-to-position);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      }
+      .from-red-600 {
+        --tw-gradient-from: #dc2626 var(--tw-gradient-from-position);
+        --tw-gradient-to: rgb(220 38 38 / 0) var(--tw-gradient-to-position);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      }
+      .from-yellow-600 {
+        --tw-gradient-from: #ca8a04 var(--tw-gradient-from-position);
+        --tw-gradient-to: rgb(202 138 4 / 0) var(--tw-gradient-to-position);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      }
+      .to-\[\#0f0f1a\] {
+        --tw-gradient-to: #0f0f1a var(--tw-gradient-to-position);
+      }
+      .to-\[\#ff9933\] {
+        --tw-gradient-to: #ff9933 var(--tw-gradient-to-position);
+      }
+      .to-amber-800 {
+        --tw-gradient-to: #92400e var(--tw-gradient-to-position);
+      }
+      .to-blue-800 {
+        --tw-gradient-to: #1e40af var(--tw-gradient-to-position);
+      }
+      .to-indigo-800 {
+        --tw-gradient-to: #3730a3 var(--tw-gradient-to-position);
+      }
+      .to-orange-800 {
+        --tw-gradient-to: #9a3412 var(--tw-gradient-to-position);
+      }
+      .to-rose-800 {
+        --tw-gradient-to: #9f1239 var(--tw-gradient-to-position);
+      }
+      .to-teal-800 {
+        --tw-gradient-to: #115e59 var(--tw-gradient-to-position);
+      }
+      .p-2 {
+        padding: 0.5rem;
+      }
+      .p-3 {
+        padding: 0.75rem;
+      }
+      .p-6 {
+        padding: 1.5rem;
+      }
+      .p-8 {
+        padding: 2rem;
+      }
+      .px-3 {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+      .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      .px-8 {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+      .py-1 {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+      }
+      .py-2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      .py-20 {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+      }
+      .py-3 {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+      .py-4 {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .py-8 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+      .pl-5 {
+        padding-left: 1.25rem;
+      }
+      .pt-20 {
+        padding-top: 5rem;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-2xl {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      .text-3xl {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+      }
+      .text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+      }
+      .text-5xl {
+        font-size: 3rem;
+        line-height: 1;
+      }
+      .text-6xl {
+        font-size: 3.75rem;
+        line-height: 1;
+      }
+      .text-8xl {
+        font-size: 6rem;
+        line-height: 1;
+      }
+      .text-sm {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+      }
+      .text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+      }
+      .text-xs {
+        font-size: 0.75rem;
+        line-height: 1rem;
+      }
+      .font-bold {
+        font-weight: 700;
+      }
+      .font-medium {
+        font-weight: 500;
+      }
+      .text-gray-300 {
+        --tw-text-opacity: 1;
+        color: rgb(209 213 219 / var(--tw-text-opacity, 1));
+      }
+      .text-gray-400 {
+        --tw-text-opacity: 1;
+        color: rgb(156 163 175 / var(--tw-text-opacity, 1));
+      }
+      .text-white {
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+      }
+      .backdrop-blur-md {
+        --tw-backdrop-blur: blur(12px);
+        -webkit-backdrop-filter: var(--tw-backdrop-blur)
+          var(--tw-backdrop-brightness) var(--tw-backdrop-contrast)
+          var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate)
+          var(--tw-backdrop-invert) var(--tw-backdrop-opacity)
+          var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+        backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+          var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
+          var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+          var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+          var(--tw-backdrop-sepia);
+      }
+      .backdrop-blur-sm {
+        --tw-backdrop-blur: blur(4px);
+        -webkit-backdrop-filter: var(--tw-backdrop-blur)
+          var(--tw-backdrop-brightness) var(--tw-backdrop-contrast)
+          var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate)
+          var(--tw-backdrop-invert) var(--tw-backdrop-opacity)
+          var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+        backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+          var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale)
+          var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert)
+          var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+          var(--tw-backdrop-sepia);
+      }
+      .transition-colors {
+        transition-property: color, background-color, border-color, fill, stroke,
+          -webkit-text-decoration-color;
+        transition-property: color, background-color, border-color,
+          text-decoration-color, fill, stroke;
+        transition-property: color, background-color, border-color,
+          text-decoration-color, fill, stroke, -webkit-text-decoration-color;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+      .hover\:border-white:hover {
+        --tw-border-opacity: 1;
+        border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+      }
+      .hover\:bg-opacity-70:hover {
+        --tw-bg-opacity: 0.7;
+      }
+      .hover\:text-white:hover {
+        --tw-text-opacity: 1;
+        color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+      }
+      .focus\:outline-none:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+      @media (min-width: 768px) {
+        .md\:mb-0 {
+          margin-bottom: 0px;
+        }
+        .md\:block {
+          display: block;
+        }
+        .md\:flex {
+          display: flex;
+        }
+        .md\:hidden {
+          display: none;
+        }
+        .md\:grid-cols-2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .md\:grid-cols-4 {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+        .md\:flex-row {
+          flex-direction: row;
+        }
+        .md\:text-right {
+          text-align: right;
+        }
+        .md\:text-2xl {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
+        .md\:text-7xl {
+          font-size: 4.5rem;
+          line-height: 1;
+        }
+      }
+      @media (min-width: 1024px) {
+        .lg\:grid-cols-3 {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body class="relative">
+    <div
+      class="custom-cursor hidden md:block"
+      style="
+        left: 945px;
+        top: 1268px;
+        width: 20px;
+        height: 20px;
+        background: rgba(255, 51, 102, 0.5);
+      "
+    ></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 bg-opacity-80 bg-[#0f0f1a] backdrop-blur-md border-b border-gray-800"
+    >
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <div class="equalizer">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+          <a
+            href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#"
+            class="text-2xl font-bold orbitron gradient-text"
+            >Mr.Boombox</a
+          >
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a
+            href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#about"
+            class="nav-link"
+            >About</a
+          >
+          <a
+            href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#skills"
+            class="nav-link"
+            >Skills</a
+          >
+          <a
+            href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#projects"
+            class="nav-link"
+            >Projects</a
+          >
+          <a
+            href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#contact"
+            class="nav-link"
+            >Contact</a
+          >
+        </div>
+
+        <div class="md:hidden">
+          <button id="menu-toggle" class="text-white focus:outline-none">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden bg-[#0f0f1a] border-b border-gray-800 hidden"
+      >
+        <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          <a
+            href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#about"
+            class="block py-2"
+            >About</a
+          >
+          <a
+            href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#skills"
+            class="block py-2"
+            >Skills</a
+          >
+          <a
+            href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#projects"
+            class="block py-2"
+            >Projects</a
+          >
+          <a
+            href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#contact"
+            class="block py-2"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+    >
+      <div class="absolute inset-0 z-0">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern
+              id="grid"
+              width="40"
+              height="40"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 40 0 L 0 0 0 40"
+                fill="none"
+                stroke="rgba(255,255,255,0.05)"
+                stroke-width="1"
+              ></path>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)"></rect>
+        </svg>
+      </div>
+
+      <div class="container mx-auto px-4 z-10 text-center">
+        <div class="mb-8">
+          <svg
+            class="boombox-svg w-40 h-40 mx-auto"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="10"
+              y="25"
+              width="80"
+              height="50"
+              rx="5"
+              fill="#333"
+            ></rect>
+            <rect
+              x="15"
+              y="30"
+              width="70"
+              height="40"
+              rx="3"
+              fill="#222"
+            ></rect>
+            <circle cx="30" cy="50" r="15" fill="#444"></circle>
+            <circle cx="30" cy="50" r="12" fill="#333"></circle>
+            <circle cx="30" cy="50" r="5" fill="#ff3366"></circle>
+            <circle cx="70" cy="50" r="15" fill="#444"></circle>
+            <circle cx="70" cy="50" r="12" fill="#333"></circle>
+            <circle cx="70" cy="50" r="5" fill="#ff3366"></circle>
+            <rect
+              x="45"
+              y="35"
+              width="10"
+              height="5"
+              rx="1"
+              fill="#ff9933"
+            ></rect>
+            <rect
+              x="45"
+              y="45"
+              width="10"
+              height="5"
+              rx="1"
+              fill="#ff9933"
+            ></rect>
+            <rect
+              x="45"
+              y="55"
+              width="10"
+              height="5"
+              rx="1"
+              fill="#ff9933"
+            ></rect>
+            <rect x="20" y="20" width="60" height="5" rx="2" fill="#444"></rect>
+          </svg>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-bold orbitron mb-6">
+          <span class="gradient-text">Mr.Boombox</span>
+        </h1>
+
+        <div class="flex justify-center mb-8">
+          <div class="typing-container relative h-12 overflow-hidden">
+            <p
+              class="text-xl md:text-2xl absolute inset-0 flex items-center justify-center typing-text"
+              style="opacity: 0; transform: translateY(20px)"
+            >
+              Sound Designer
+            </p>
+            <p
+              class="text-xl md:text-2xl absolute inset-0 flex items-center justify-center typing-text"
+              style="opacity: 1; transform: translateY(0px)"
+            >
+              Programmer
+            </p>
+            <p
+              class="text-xl md:text-2xl absolute inset-0 flex items-center justify-center typing-text"
+              style="opacity: 0; transform: translateY(20px)"
+            >
+              Audio Engineer
+            </p>
+          </div>
+        </div>
+
+        <div class="flex justify-center space-x-4 mb-12">
+          <a
+            href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#contact"
+            class="btn-gradient px-8 py-3 rounded-full font-medium"
+            >Hire Me</a
+          >
+          <a
+            href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#projects"
+            class="px-8 py-3 rounded-full font-medium border border-gray-600 hover:border-white transition-colors"
+            >View Work</a
+          >
+        </div>
+
+        <div
+          class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
+        >
+          <a
+            href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#about"
+            class="text-gray-400 hover:text-white"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold orbitron mb-16 text-center">
+          <span class="gradient-text">About Me</span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="card p-8 rounded-xl">
+            <h3 class="text-2xl font-bold mb-4">Who is Mr.Boombox?</h3>
+            <p class="mb-4">
+              I'm a passionate sound designer and programmer with over 8 years
+              of experience creating immersive audio experiences for games,
+              applications, and interactive media.
+            </p>
+            <p class="mb-4">
+              My journey began in music production, but I quickly fell in love
+              with the technical aspects of sound design and audio programming.
+              This unique combination allows me to bridge the gap between
+              creative vision and technical implementation.
+            </p>
+            <p>
+              When I'm not crafting soundscapes or writing code, you can find me
+              experimenting with modular synthesizers, field recording in
+              unusual locations, or contributing to open-source audio projects.
+            </p>
+          </div>
+
+          <div class="relative">
+            <div
+              class="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-[#1e1e32] to-[#0f0f1a] p-8 flex items-center justify-center"
+            >
+              <svg
+                class="w-full h-full"
+                viewBox="0 0 200 200"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#FF3366"
+                  d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90.2,-16.3,88.8,-0.8C87.4,14.7,81.8,29.3,73.6,42.5C65.3,55.7,54.5,67.3,41.3,74.7C28.2,82.1,14.1,85.2,-0.7,86.4C-15.5,87.6,-31,86.9,-43.5,79.9C-56,72.9,-65.5,59.7,-73.3,45.8C-81.1,31.8,-87.2,15.9,-87.6,-0.2C-88,-16.3,-82.7,-32.7,-73.6,-46.2C-64.4,-59.7,-51.4,-70.4,-37.3,-77.7C-23.3,-85,-11.6,-89,1.9,-92.2C15.5,-95.4,30.9,-97.8,44.7,-93.1C58.5,-88.4,70.7,-76.5,44.7,-76.4Z"
+                  transform="translate(100 100)"
+                ></path>
+              </svg>
+
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="w-3/4 h-3/4 rounded-full border-4 border-white bg-[#0f0f1a] flex items-center justify-center"
+                >
+                  <div class="text-center">
+                    <div class="text-5xl mb-2">🎧</div>
+                    <div class="text-xl font-bold orbitron gradient-text">
+                      Mr.Boombox
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-[#0a0a14]">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold orbitron mb-16 text-center">
+          <span class="gradient-text">My Skills</span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center">
+              <span class="text-3xl mr-3">🎵</span> Sound Design
+            </h3>
+
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Sound Effects Creation</span>
+                  <span>95%</span>
+                </div>
+                <div class="h-2 bg-gray-700 rounded-full">
+                  <div
+                    class="h-full bg-gradient-to-r from-[#ff3366] to-[#ff9933] rounded-full"
+                    style="width: 95%"
+                  ></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Music Composition</span>
+                  <span>85%</span>
+                </div>
+                <div class="h-2 bg-gray-700 rounded-full">
+                  <div
+                    class="h-full bg-gradient-to-r from-[#ff3366] to-[#ff9933] rounded-full"
+                    style="width: 85%"
+                  ></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Audio Mixing &amp; Mastering</span>
+                  <span>90%</span>
+                </div>
+                <div class="h-2 bg-gray-700 rounded-full">
+                  <div
+                    class="h-full bg-gradient-to-r from-[#ff3366] to-[#ff9933] rounded-full"
+                    style="width: 90%"
+                  ></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Foley Recording</span>
+                  <span>80%</span>
+                </div>
+                <div class="h-2 bg-gray-700 rounded-full">
+                  <div
+                    class="h-full bg-gradient-to-r from-[#ff3366] to-[#ff9933] rounded-full"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Spatial Audio Design</span>
+                  <span>75%</span>
+                </div>
+                <div class="h-2 bg-gray-700 rounded-full">
+                  <div
+                    class="h-full bg-gradient-to-r from-[#ff3366] to-[#ff9933] rounded-full"
+                    style="width: 75%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center">
+              <span class="text-3xl mr-3">💻</span> Programming
+            </h3>
+
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Audio Programming (C++)</span>
+                  <span>90%</span>
+                </div>
+                <div class="h-2 bg-gray-700 rounded-full">
+                  <div
+                    class="h-full bg-gradient-to-r from-[#ff3366] to-[#ff9933] rounded-full"
+                    style="width: 90%"
+                  ></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Web Audio API</span>
+                  <span>85%</span>
+                </div>
+                <div class="h-2 bg-gray-700 rounded-full">
+                  <div
+                    class="h-full bg-gradient-to-r from-[#ff3366] to-[#ff9933] rounded-full"
+                    style="width: 85%"
+                  ></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>DSP Algorithm Design</span>
+                  <span>80%</span>
+                </div>
+                <div class="h-2 bg-gray-700 rounded-full">
+                  <div
+                    class="h-full bg-gradient-to-r from-[#ff3366] to-[#ff9933] rounded-full"
+                    style="width: 80%"
+                  ></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Unity Audio Implementation</span>
+                  <span>95%</span>
+                </div>
+                <div class="h-2 bg-gray-700 rounded-full">
+                  <div
+                    class="h-full bg-gradient-to-r from-[#ff3366] to-[#ff9933] rounded-full"
+                    style="width: 95%"
+                  ></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Max/MSP &amp; Pure Data</span>
+                  <span>75%</span>
+                </div>
+                <div class="h-2 bg-gray-700 rounded-full">
+                  <div
+                    class="h-full bg-gradient-to-r from-[#ff3366] to-[#ff9933] rounded-full"
+                    style="width: 75%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="card p-6 rounded-xl text-center">
+            <div class="text-4xl mb-4">🎚️</div>
+            <h4 class="font-bold mb-2">Pro Tools</h4>
+            <p class="text-sm text-gray-400">Expert</p>
+          </div>
+
+          <div class="card p-6 rounded-xl text-center">
+            <div class="text-4xl mb-4">🎛️</div>
+            <h4 class="font-bold mb-2">Ableton Live</h4>
+            <p class="text-sm text-gray-400">Advanced</p>
+          </div>
+
+          <div class="card p-6 rounded-xl text-center">
+            <div class="text-4xl mb-4">🎮</div>
+            <h4 class="font-bold mb-2">FMOD</h4>
+            <p class="text-sm text-gray-400">Expert</p>
+          </div>
+
+          <div class="card p-6 rounded-xl text-center">
+            <div class="text-4xl mb-4">🔊</div>
+            <h4 class="font-bold mb-2">Wwise</h4>
+            <p class="text-sm text-gray-400">Advanced</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold orbitron mb-16 text-center">
+          <span class="gradient-text">Featured Projects</span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div class="project-card card rounded-xl overflow-hidden">
+            <div
+              class="aspect-video bg-gradient-to-br from-purple-600 to-blue-800 flex items-center justify-center"
+            >
+              <div class="text-6xl">🎮</div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Echosphere</h3>
+              <p class="text-gray-400 mb-4">
+                Procedural audio system for an award-winning indie game that
+                generates dynamic soundscapes based on player actions.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >Game Audio</span
+                >
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >C++</span
+                >
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >FMOD</span
+                >
+              </div>
+            </div>
+            <div class="project-overlay">
+              <button
+                class="btn-gradient px-6 py-2 rounded-full font-medium mb-4 project-details"
+                data-project="echosphere"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card card rounded-xl overflow-hidden">
+            <div
+              class="aspect-video bg-gradient-to-br from-green-600 to-teal-800 flex items-center justify-center"
+            >
+              <div class="text-6xl">🎹</div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">WaveSynth</h3>
+              <p class="text-gray-400 mb-4">
+                Browser-based synthesizer with custom DSP algorithms and a
+                modular patching system.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >Web Audio</span
+                >
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >JavaScript</span
+                >
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >DSP</span
+                >
+              </div>
+            </div>
+            <div class="project-overlay">
+              <button
+                class="btn-gradient px-6 py-2 rounded-full font-medium mb-4 project-details"
+                data-project="wavesynth"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card card rounded-xl overflow-hidden">
+            <div
+              class="aspect-video bg-gradient-to-br from-red-600 to-orange-800 flex items-center justify-center"
+            >
+              <div class="text-6xl">🎬</div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Cinematic Sound Pack</h3>
+              <p class="text-gray-400 mb-4">
+                Premium collection of 500+ cinematic sound effects used in major
+                film productions and trailers.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >Sound Design</span
+                >
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >Film Audio</span
+                >
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >Foley</span
+                >
+              </div>
+            </div>
+            <div class="project-overlay">
+              <button
+                class="btn-gradient px-6 py-2 rounded-full font-medium mb-4 project-details"
+                data-project="cinematic"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card card rounded-xl overflow-hidden">
+            <div
+              class="aspect-video bg-gradient-to-br from-blue-600 to-indigo-800 flex items-center justify-center"
+            >
+              <div class="text-6xl">🔊</div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">AudioViz</h3>
+              <p class="text-gray-400 mb-4">
+                Real-time audio visualization tool with customizable rendering
+                options and audio analysis features.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >C++</span
+                >
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >OpenGL</span
+                >
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >FFT Analysis</span
+                >
+              </div>
+            </div>
+            <div class="project-overlay">
+              <button
+                class="btn-gradient px-6 py-2 rounded-full font-medium mb-4 project-details"
+                data-project="audioviz"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card card rounded-xl overflow-hidden">
+            <div
+              class="aspect-video bg-gradient-to-br from-yellow-600 to-amber-800 flex items-center justify-center"
+            >
+              <div class="text-6xl">🎧</div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Spatial Audio Plugin</h3>
+              <p class="text-gray-400 mb-4">
+                VST/AU plugin for creating immersive 3D audio experiences with
+                binaural rendering.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >JUCE</span
+                >
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >C++</span
+                >
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >Spatial Audio</span
+                >
+              </div>
+            </div>
+            <div class="project-overlay">
+              <button
+                class="btn-gradient px-6 py-2 rounded-full font-medium mb-4 project-details"
+                data-project="spatial"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card card rounded-xl overflow-hidden">
+            <div
+              class="aspect-video bg-gradient-to-br from-pink-600 to-rose-800 flex items-center justify-center"
+            >
+              <div class="text-6xl">🤖</div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">AI Sound Generator</h3>
+              <p class="text-gray-400 mb-4">
+                Machine learning model that generates unique sound effects based
+                on text descriptions.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >Python</span
+                >
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >TensorFlow</span
+                >
+                <span class="text-xs bg-gray-800 px-3 py-1 rounded-full"
+                  >AI</span
+                >
+              </div>
+            </div>
+            <div class="project-overlay">
+              <button
+                class="btn-gradient px-6 py-2 rounded-full font-medium mb-4 project-details"
+                data-project="ai"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div
+      id="project-modal"
+      class="fixed inset-0 z-50 flex items-center justify-center hidden"
+    >
+      <div
+        class="absolute inset-0 bg-black bg-opacity-80 backdrop-blur-sm"
+        id="modal-overlay"
+      ></div>
+      <div
+        class="bg-[#1e1e32] rounded-xl w-full max-w-3xl mx-4 z-10 overflow-hidden"
+      >
+        <div class="relative">
+          <div
+            id="modal-header"
+            class="h-48 bg-gradient-to-r from-[#ff3366] to-[#ff9933] flex items-center justify-center"
+          >
+            <div id="modal-icon" class="text-8xl"></div>
+          </div>
+          <button
+            id="close-modal"
+            class="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-70 transition-colors"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="p-8">
+          <h3 id="modal-title" class="text-2xl font-bold mb-4"></h3>
+          <p id="modal-description" class="mb-6 text-gray-300"></p>
+
+          <div class="mb-6">
+            <h4 class="font-bold mb-2">Technologies Used:</h4>
+            <div id="modal-tech" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <div class="mb-6">
+            <h4 class="font-bold mb-2">Key Features:</h4>
+            <ul
+              id="modal-features"
+              class="list-disc pl-5 space-y-1 text-gray-300"
+            ></ul>
+          </div>
+
+          <div class="flex justify-end">
+            <button class="btn-gradient px-6 py-2 rounded-full font-medium">
+              Visit Project
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-[#0a0a14]">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold orbitron mb-16 text-center">
+          <span class="gradient-text">Get In Touch</span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-bold mb-6">Let's Collaborate</h3>
+            <p class="mb-8">
+              Have a project in mind? Need custom sound design or audio
+              programming? I'd love to hear about it and see how we can work
+              together.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 rounded-full bg-[#1e1e32] flex items-center justify-center mr-4"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Email</p>
+                  <p>contact@mrboombox.com</p>
+                </div>
+              </div>
+
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 rounded-full bg-[#1e1e32] flex items-center justify-center mr-4"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Location</p>
+                  <p>Los Angeles, CA</p>
+                </div>
+              </div>
+
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 rounded-full bg-[#1e1e32] flex items-center justify-center mr-4"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Working Hours</p>
+                  <p>Mon - Fri: 9am - 6pm PST</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <h4 class="font-bold mb-4">Follow Me</h4>
+              <div class="flex space-x-4">
+                <a
+                  href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#"
+                  class="social-icon w-10 h-10 rounded-full bg-[#1e1e32] flex items-center justify-center"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#"
+                  class="social-icon w-10 h-10 rounded-full bg-[#1e1e32] flex items-center justify-center"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#"
+                  class="social-icon w-10 h-10 rounded-full bg-[#1e1e32] flex items-center justify-center"
+                >
+                  <i class="fab fa-soundcloud"></i>
+                </a>
+                <a
+                  href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#"
+                  class="social-icon w-10 h-10 rounded-full bg-[#1e1e32] flex items-center justify-center"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+                <a
+                  href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#"
+                  class="social-icon w-10 h-10 rounded-full bg-[#1e1e32] flex items-center justify-center"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <form id="contact-form" class="card p-8 rounded-xl">
+              <div class="mb-6">
+                <label for="name" class="block mb-2 text-sm font-medium"
+                  >Your Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="contact-input w-full p-3 rounded-lg"
+                  placeholder="John Doe"
+                  required=""
+                />
+              </div>
+
+              <div class="mb-6">
+                <label for="email" class="block mb-2 text-sm font-medium"
+                  >Your Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="contact-input w-full p-3 rounded-lg"
+                  placeholder="john@example.com"
+                  required=""
+                />
+              </div>
+
+              <div class="mb-6">
+                <label for="subject" class="block mb-2 text-sm font-medium"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  class="contact-input w-full p-3 rounded-lg"
+                  placeholder="Project Inquiry"
+                  required=""
+                />
+              </div>
+
+              <div class="mb-6">
+                <label for="message" class="block mb-2 text-sm font-medium"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="contact-input w-full p-3 rounded-lg"
+                  placeholder="Tell me about your project..."
+                  required=""
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="btn-gradient w-full py-3 rounded-lg font-medium"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <div class="flex items-center space-x-2">
+              <div class="equalizer">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+              <a
+                href="https://bbrp82b9kdzd2meq.canva-hosted-embed.com/codelet/AAEAEGJicnA4MmI5a2R6ZDJtZXEAAAAAAZbu8gBQyv8X_u4UBsWdrt8nHqP39VUbeFL8_l8I5xE3Y2ohB0c/#"
+                class="text-xl font-bold orbitron gradient-text"
+                >Mr.Boombox</a
+              >
+            </div>
+          </div>
+
+          <div class="text-center md:text-right">
+            <p class="text-sm text-gray-400">
+              © 2023 Mr.Boombox. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+
+            // Close mobile menu if open
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+            }
+          }
+        });
+      });
+
+      // Typing animation
+      const typingTexts = document.querySelectorAll(".typing-text");
+      let currentTextIndex = 0;
+
+      function animateTyping() {
+        typingTexts.forEach((text, index) => {
+          if (index === currentTextIndex) {
+            text.style.opacity = "1";
+            text.style.transform = "translateY(0)";
+          } else {
+            text.style.opacity = "0";
+            text.style.transform = "translateY(20px)";
+          }
+        });
+
+        currentTextIndex = (currentTextIndex + 1) % typingTexts.length;
+      }
+
+      // Initial call
+      animateTyping();
+      // Set interval for typing animation
+      setInterval(animateTyping, 3000);
+
+      // Custom cursor
+      const cursor = document.querySelector(".custom-cursor");
+
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      });
+
+      document.addEventListener("mousedown", () => {
+        cursor.style.width = "15px";
+        cursor.style.height = "15px";
+        cursor.style.background = "rgba(255, 51, 102, 0.8)";
+      });
+
+      document.addEventListener("mouseup", () => {
+        cursor.style.width = "20px";
+        cursor.style.height = "20px";
+        cursor.style.background = "rgba(255, 51, 102, 0.5)";
+      });
+
+      // Project modal functionality
+      const projectModal = document.getElementById("project-modal");
+      const modalOverlay = document.getElementById("modal-overlay");
+      const closeModal = document.getElementById("close-modal");
+      const projectButtons = document.querySelectorAll(".project-details");
+
+      const projectData = {
+        echosphere: {
+          title: "Echosphere",
+          description:
+            "A procedural audio system developed for an award-winning indie game. The system dynamically generates and modifies soundscapes based on player actions, environment, and game state.",
+          icon: "🎮",
+          tech: ["Game Audio", "C++", "FMOD", "Unity"],
+          features: [
+            "Real-time audio generation based on gameplay parameters",
+            "Adaptive music system that responds to player emotions",
+            "Custom DSP effects chain for environmental audio",
+            "Memory-efficient sample management system",
+            "Integration with game physics for realistic impact sounds",
+          ],
+        },
+        wavesynth: {
+          title: "WaveSynth",
+          description:
+            "A browser-based synthesizer with custom DSP algorithms and a modular patching system. Users can create complex sound designs directly in their web browser.",
+          icon: "🎹",
+          tech: ["Web Audio API", "JavaScript", "DSP", "React"],
+          features: [
+            "8 oscillator types with custom waveform editor",
+            "Modular routing system with unlimited connections",
+            "16-step sequencer with probability controls",
+            "Built-in effects including reverb, delay, and distortion",
+            "Preset system with cloud storage integration",
+          ],
+        },
+        cinematic: {
+          title: "Cinematic Sound Pack",
+          description:
+            "A premium collection of over 500 cinematic sound effects used in major film productions and trailers. Each sound was meticulously crafted using a combination of field recording and synthesis.",
+          icon: "🎬",
+          tech: ["Sound Design", "Film Audio", "Foley", "Pro Tools"],
+          features: [
+            "High-definition 24-bit/96kHz audio files",
+            "Organized into 12 thematic categories",
+            "Multiple variations of each sound type",
+            "Designed for seamless layering and mixing",
+            "Used in over 20 major film productions",
+          ],
+        },
+        audioviz: {
+          title: "AudioViz",
+          description:
+            "A real-time audio visualization tool with customizable rendering options and advanced audio analysis features. Perfect for live performances, music videos, and interactive installations.",
+          icon: "🔊",
+          tech: ["C++", "OpenGL", "FFT Analysis", "GLSL"],
+          features: [
+            "Real-time FFT analysis with adjustable parameters",
+            "15 visualization styles with customizable properties",
+            "MIDI and OSC control integration",
+            "Video output with recording capabilities",
+            "Low-latency performance optimized for live use",
+          ],
+        },
+        spatial: {
+          title: "Spatial Audio Plugin",
+          description:
+            "A VST/AU plugin for creating immersive 3D audio experiences with binaural rendering. Used by sound designers and composers for VR/AR content and immersive music production.",
+          icon: "🎧",
+          tech: ["JUCE", "C++", "Spatial Audio", "DSP"],
+          features: [
+            "HRTF-based binaural rendering engine",
+            "Room simulation with adjustable acoustic properties",
+            "Support for ambisonics and object-based audio",
+            "Head tracking integration for VR applications",
+            "Automation and DAW synchronization",
+          ],
+        },
+        ai: {
+          title: "AI Sound Generator",
+          description:
+            "A machine learning model that generates unique sound effects based on text descriptions. The system was trained on thousands of labeled sound samples to understand the relationship between textual descriptions and audio characteristics.",
+          icon: "🤖",
+          tech: ["Python", "TensorFlow", "AI", "Audio Analysis"],
+          features: [
+            "Text-to-sound generation with semantic understanding",
+            "Style transfer between different sound categories",
+            "Parameter controls for fine-tuning outputs",
+            "Batch processing for multiple sound generation",
+            "REST API for integration with other applications",
+          ],
+        },
+      };
+
+      projectButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const projectId = button.getAttribute("data-project");
+          const project = projectData[projectId];
+
+          document.getElementById("modal-title").textContent = project.title;
+          document.getElementById("modal-description").textContent =
+            project.description;
+          document.getElementById("modal-icon").textContent = project.icon;
+
+          const techContainer = document.getElementById("modal-tech");
+          techContainer.innerHTML = "";
+          project.tech.forEach((tech) => {
+            const span = document.createElement("span");
+            span.className = "text-xs bg-gray-800 px-3 py-1 rounded-full";
+            span.textContent = tech;
+            techContainer.appendChild(span);
+          });
+
+          const featuresList = document.getElementById("modal-features");
+          featuresList.innerHTML = "";
+          project.features.forEach((feature) => {
+            const li = document.createElement("li");
+            li.textContent = feature;
+            featuresList.appendChild(li);
+          });
+
+          projectModal.classList.remove("hidden");
+        });
+      });
+
+      function closeModalFunc() {
+        projectModal.classList.add("hidden");
+      }
+
+      closeModal.addEventListener("click", closeModalFunc);
+      modalOverlay.addEventListener("click", closeModalFunc);
+
+      // Contact form submission
+      const contactForm = document.getElementById("contact-form");
+
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // In a real implementation, you would send the form data to a server
+        // For this demo, we'll just show a success message
+
+        const formData = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          subject: document.getElementById("subject").value,
+          message: document.getElementById("message").value,
+        };
+
+        // Reset form
+        contactForm.reset();
+
+        // Show success message (in a real implementation)
+        alert("Thank you for your message! I'll get back to you soon.");
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'9425a3dd90b31e76',t:'MTc0NzY3OTE2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+    <iframe
+      height="1"
+      width="1"
+      style="
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        border: none;
+        visibility: hidden;
+      "
+      src="./saved_resource(2).html"
+    ></iframe>
+  </body>
+</html>
